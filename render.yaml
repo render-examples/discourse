@@ -18,6 +18,8 @@ services:
   plan: standard
   dockerfilePath: ./web/v2.6.3/Dockerfile
   dockerContext: ./web/v2.6.3
+  autoDeploy: false
+  healthCheckPath: /srv/status
   disk:
     name: discourse-data
     mountPath: /var/www/discourse/public/uploads

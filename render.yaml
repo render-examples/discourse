@@ -38,7 +38,7 @@ services:
   - key: DISCOURSE_SMTP_USER_NAME
     sync: false # set to the SMTP username in the dashboard
   - key: DISCOURSE_SMTP_PASSWORD
-    sync: false # set to a the SMTP server password in the dashboard
+    sync: false # set to the SMTP server password in the dashboard
   - key: CUSTOM_DOMAIN
     sync: false # set this if you plan to use your own domain
   - key: DISCOURSE_MAXMIND_LICENSE_KEY

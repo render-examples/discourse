@@ -26,4 +26,4 @@ For reference, see the Discourse [default server config](https://github.com/disc
 
 This container deploys [Discourse v2.6.3](https://github.com/discourse/discourse/releases/tag/v2.6.3), which is the latest stable version at the time of writing.
 
-Upgrading should be relatively simple since Render will persist assets on [Disks](https://render.com/docs/disks) and persist application data in our [Database](https://render.com/docs/databases) between deploys. However, we will need to add and test the next version to this repo to ensure the build is still correct. Once that is done, all you need to do is upgrade the Dockerfile path in the [render.yaml](../../render.yaml#L19-L20)
+Upgrading should be relatively simple since Render will persist assets on [Disks](https://render.com/docs/disks) and persist application data in our [Database](https://render.com/docs/databases) between deploys. However, we will need to add and test the next version to this repo to ensure the build is still correct. Once that is done, all you need to do is upgrade the Dockerfile path in the [render.yaml](../../render.yaml#L19-L20).

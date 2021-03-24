@@ -26,7 +26,7 @@ services:
     sizeGB: 2
   envVars:
   - key: DISCOURSE_ADMIN_EMAIL
-    sync: false # initial admin email for setup, set to your personal email
+    sync: false # initial admin email for setup; set to your personal email
   - key: DISCOURSE_ADMIN_PASSWORD
     generateValue: true # auto-generated to ensure length > 15
   - key: DISCOURSE_SMTP_ADDRESS

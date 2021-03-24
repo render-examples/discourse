@@ -9,7 +9,7 @@ It will create the following components on Render:
 ## Deployment
 ### Prerequisites
 
-Discourse does *not* work without an email server. Properly sending mail can be tricky, so we've omitted a mail server from the deploy and strongly recommend using a third-party email provider.
+Discourse does *not* work without an email server. Properly sending mail can be tricky, so we've omitted a mail server from the deploy config and strongly recommend using a third-party email provider.
 
 See the official [Discourse recommended email providers](https://github.com/discourse/discourse/blob/master/docs/INSTALL-email.md).
 

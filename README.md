@@ -31,7 +31,7 @@ These environment variables must be set appropriately for your application to wo
 - `DISCOURSE_SMTP_ADDRESS`: the address of your SMTP provider (e.g. `smtp.mailgun.org`).
 - `DISCOURSE_SMTP_DOMAIN`: this should be the domain you send emails from (e.g. for `my_email@mg.example.com`, it would be `mg.example.com`).
 - `DISCOURSE_SMTP_PORT`: the port your SMTP provider uses to connect (e.g. `587`).
-- `DISCOURSE_SMTP_USER_NAME`: your SMTP provider username (e.g. postmaster@mg.example.com).
+- `DISCOURSE_SMTP_USER_NAME`: your SMTP provider username (e.g. `postmaster@mg.example.com`).
 - `DISCOURSE_SMTP_PASSWORD`: your SMTP provider password.
 
 **Optional:**

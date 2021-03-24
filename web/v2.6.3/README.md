@@ -19,7 +19,7 @@ We have configured the following:
 - [web server](puma.rb): uses 2 workers and 4 threads
 - [background worker](sidekiq.yml): concurrency level 2
 
-This seems to work fine on a machine with 2GB RAM, though you may choose to increase these and choose a larger web server.
+This seems to work fine on a machine with 2 GB RAM, but you can choose a larger web server plan.
 For reference, see the Discourse [default server config](https://github.com/discourse/discourse/blob/v2.6.3/config/puma.rb) and [default worker config](https://github.com/discourse/discourse/blob/v2.6.3/config/sidekiq.yml). These may work better on machines with more RAM.
 
 # Upgrading

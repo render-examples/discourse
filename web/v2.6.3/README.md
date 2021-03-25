@@ -7,7 +7,7 @@ This folder contains the Dockerfile which will build the Discourse web container
 - Sidekiq background workers
 - NGINX server
 
-While we don't normally need Nginx to deploy applications on Render, the official Discourse setup is highly-coupled with NGINX, and we have chosen to change as little source code as possible to have a maintainable Render deployment.
+While we don't normally need NGINX to deploy applications on Render, the official Discourse setup is highly coupled with NGINX, and we have chosen to change as little source code as possible to have a maintainable Render deployment.
 
 For your reference, this is the [NGINX config file](https://github.com/discourse/discourse/blob/v2.6.3/config/nginx.sample.conf) provided by Discourse, which is used in this container build.
 

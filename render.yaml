@@ -1,0 +1,77 @@
+databases:
+- name: discourse-db
+  plan: standard
+services:
+- type: pserv
+  name: discourse-redis
+  env: docker
+  plan: starter
+  repo: https://github.com/render-examples/redis.git
+  branch: master
+  disk:
+    name: data
+    mountPath: /var/lib/redis
+    sizeGB: 4
+- type: web
+  name: discourse-web
+  env: docker
+  plan: standard
+  dockerfilePath: ./web/v2.6.3/Dockerfile
+  dockerContext: ./web/v2.6.3
+  autoDeploy: false
+  healthCheckPath: /srv/status
+  disk:
+    name: discourse-data
+    mountPath: /var/www/discourse/public/uploads
+    sizeGB: 2
+  envVars:
+  - key: DISCOURSE_ADMIN_EMAIL
+    sync: false # initial admin email for setup; set to your personal email
+  - key: DISCOURSE_ADMIN_PASSWORD
+    generateValue: true # auto-generated to ensure length > 15
+  - key: DISCOURSE_SMTP_ADDRESS
+    sync: false # set to a valid SMTP server address in the dashboard
+  - key: DISCOURSE_SMTP_PORT
+    sync: false # set to a valid SMTP port in the dashboard
+  - key: DISCOURSE_SMTP_DOMAIN
+    sync: false # set to the domain passed to the SMTP server in the dashboard
+  - key: DISCOURSE_SMTP_USER_NAME
+    sync: false # set to the SMTP username in the dashboard
+  - key: DISCOURSE_SMTP_PASSWORD
+    sync: false # set to the SMTP server password in the dashboard
+  - key: CUSTOM_DOMAIN
+    sync: false # set this if you plan to use your own domain
+  - key: DISCOURSE_MAXMIND_LICENSE_KEY
+    sync: false # set this if you have a GeoLite/GeoIP license key
+  - key: DISCOURSE_DB_HOST
+    fromDatabase:
+      name: discourse-db
+      property: host
+  - key: DISCOURSE_DB_PORT
+    fromDatabase:
+      name: discourse-db
+      property: port
+  - key: DISCOURSE_DB_USERNAME
+    fromDatabase:
+      name: discourse-db
+      property: user
+  - key: DISCOURSE_DB_PASSWORD
+    fromDatabase:
+      name: discourse-db
+      property: password
+  - key: DISCOURSE_DB_NAME
+    fromDatabase:
+      name: discourse-db
+      property: database
+  - key: DISCOURSE_REDIS_HOST
+    fromService:
+      type: pserv
+      name: discourse-redis
+      property: host
+  - key: DISCOURSE_REDIS_PORT
+    fromService:
+      type: pserv
+      name: discourse-redis
+      property: port
+  - key: PORT
+    value: 80 # Do not edit! Discourse exposes this internally

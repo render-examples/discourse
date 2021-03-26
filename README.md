@@ -25,4 +25,4 @@ Use the button below to deploy Discourse on Render.
 
 See the guide at https://render.com/docs/deploy-discourse.
 
-If you need more help, talk with us at https://community.render.com.
+If you need help, get in touch at https://community.render.com.

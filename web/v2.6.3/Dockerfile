@@ -33,6 +33,11 @@ RUN /tmp/install-nginx.sh && \
     sed -i "s/^  server_name enter\.your\.web\.hostname\.here;/  server_name $DISCOURSE_HOSTNAME;/" /etc/nginx/conf.d/discourse.conf && \
     mkdir -p /var/nginx/cache/
 
+# Install Redis
+COPY install-redis.sh /tmp/install-redis.sh
+COPY redis.conf .
+RUN /tmp/install-redis.sh
+
 # Render offers free, fully managed SSL, so set default web setting to force HTTPS
 RUN perl -i -p0e 's/  force_https:\n    default: false/  force_https:\n    default: true/' config/site_settings.yml
 

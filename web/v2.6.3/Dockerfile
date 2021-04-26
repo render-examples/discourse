@@ -2,11 +2,13 @@ FROM ruby:2.7.2
 
 ARG RENDER_EXTERNAL_HOSTNAME
 ARG CUSTOM_DOMAIN
+ARG DISCOURSE_WORKER_CONCURRENCY
 
 ENV DISCOURSE_HOSTNAME=${CUSTOM_DOMAIN:-$RENDER_EXTERNAL_HOSTNAME}
 ENV RAILS_ENV=production
 ENV DISCOURSE_VERSION=v2.6.3
 ENV DISCOURSE_ROOT=/var/www/discourse
+ENV DISCOURSE_WORKER_CONCURRENCY=${DISCOURSE_WORKER_CONCURRENCY:-2}
 
 WORKDIR $DISCOURSE_ROOT
 
@@ -47,5 +49,7 @@ RUN touch log/production.log
 
 COPY puma.rb sidekiq.yml ./config/
 COPY entrypoint.sh Procfile ./
+
+RUN sed -i "s/^  :concurrency: 2/  :concurrency: ${DISCOURSE_WORKER_CONCURRENCY}/" config/sidekiq.yml
 
 ENTRYPOINT [ "bash", "entrypoint.sh" ]

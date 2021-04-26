@@ -61,3 +61,5 @@ services:
     value: 80 # Do not edit! Discourse exposes this internally
   - key: DISCOURSE_WEB_CONCURRENCY
     value: 1
+  - key: DISCOURSE_WORKER_CONCURRENCY
+    value: 1

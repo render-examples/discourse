@@ -1,21 +1,11 @@
 databases:
 - name: discourse-db
-  plan: standard
-services:
-- type: pserv
-  name: discourse-redis
-  env: docker
   plan: starter
-  repo: https://github.com/render-examples/redis.git
-  branch: master
-  disk:
-    name: data
-    mountPath: /var/lib/redis
-    sizeGB: 4
+services:
 - type: web
   name: discourse-web
   env: docker
-  plan: standard
+  plan: starter plus
   dockerfilePath: ./web/v2.6.3/Dockerfile
   dockerContext: ./web/v2.6.3
   autoDeploy: false
@@ -23,7 +13,7 @@ services:
   disk:
     name: discourse-data
     mountPath: /var/www/discourse/public/uploads
-    sizeGB: 2
+    sizeGB: 12
   envVars:
   - key: DISCOURSE_ADMIN_EMAIL
     sync: false # initial admin email for setup; set to your personal email
@@ -64,14 +54,8 @@ services:
       name: discourse-db
       property: database
   - key: DISCOURSE_REDIS_HOST
-    fromService:
-      type: pserv
-      name: discourse-redis
-      property: host
+    value: localhost
   - key: DISCOURSE_REDIS_PORT
-    fromService:
-      type: pserv
-      name: discourse-redis
-      property: port
+    value: 6379
   - key: PORT
     value: 80 # Do not edit! Discourse exposes this internally

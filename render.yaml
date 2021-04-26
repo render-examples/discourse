@@ -59,3 +59,5 @@ services:
     value: 6379
   - key: PORT
     value: 80 # Do not edit! Discourse exposes this internally
+  - key: DISCOURSE_WEB_CONCURRENCY
+    value: 1

@@ -4,7 +4,6 @@
 It will create the following components on Render:
 - A [Dockerized Web Service](https://render.com/docs/docker) that runs the Discourse website and background workers.
 - A [Render PostgreSQL Managed Database](https://render.com/docs/databases).
-- A [Redis](https://render.com/docs/deploy-redis) instance for caching and acting as a message queue for the background workers.
 
 ## Deployment
 ### Prerequisites

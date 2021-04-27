@@ -2,7 +2,7 @@
 production:
   :concurrency: 2
   :queues:
-    - [critical, 4]
-    - [default, 2]
-    - [low, 1]
+    - [critical, 2]
+    - [default, 1]
+    - [low]
     - [ultra_low]

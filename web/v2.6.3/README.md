@@ -6,6 +6,7 @@ This folder contains the Dockerfile which will build the Discourse web container
 - Ruby server that backs the frontend
 - Sidekiq background workers
 - NGINX server
+- Redis server
 
 While we don't normally need NGINX to deploy applications on Render, the official Discourse setup is highly coupled with NGINX, and we have chosen to change as little source code as possible to have a maintainable Render deployment.
 

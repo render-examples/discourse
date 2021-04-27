@@ -3,8 +3,9 @@
 if ENV['RAILS_ENV'] == 'production'
 
     # Depending on resources, you can choose how many threads that you are going to run at same time.
-    workers 2
-    threads 4, 16
+    num_workers = Integer(ENV["DISCOURSE_WEB_CONCURRENCY"] || 2)
+    workers num_workers
+    threads num_workers * 2, num_workers * 4
 
     # Unless you know what you are changing, do not change them.
     APP_ROOT = '/var/www/discourse'

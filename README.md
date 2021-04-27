@@ -2,7 +2,7 @@
 
 [Discourse](https://www.discourse.org) is modern software for your community. Use it as a mailing list, discussion forum, long-form chat room, and more. You can use this repo to self-host Discourse on Render in just a few clicks!
 It will create the following components on Render:
-- A [Dockerized Web Service](https://render.com/docs/docker) that runs the Discourse website and background workers.
+- A [Dockerized Web Service](https://render.com/docs/docker) that runs the Discourse website, background worker, and Redis server.
 - A [Render PostgreSQL Managed Database](https://render.com/docs/databases).
 
 ## Deployment
